@@ -39,7 +39,9 @@
         </p>
     </div>
     <div class="fileview-content" style="max-height: 100%">
-        This is a super cool buffer overflow demonstration.<br>
+        This is a super cool buffer overflow demonstration. Your goal is to get the program to output the "Yay! Your
+        number is '68'" <br>
+
         Click <a class="old-school-link" href="/csforum/static/overflowme_m1.bin">here</a>
         for Mac
         M1.<br>
@@ -80,8 +82,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;gets(buffer);<br>
 
                 &nbsp;&nbsp;&nbsp;&nbsp;if(modified != 0) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("you have changed the 'modified'
-                variable\n");<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Yay! Your number is \'%d\'\n", modified);<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Try again?\n");<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;}<br>
