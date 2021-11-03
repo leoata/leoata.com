@@ -73,17 +73,18 @@
 
                 int main(int argc, char **argv)<br>
                 {<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;volatile int modified;<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;char buffer[64];<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;volatile int modified;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;char buffer[64];<br>
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;modified = 0;<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;gets(buffer);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;modified = 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;gets(buffer);<br>
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;if(modified != 0) {<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;printf("you have changed the 'modified' variable\n");<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;printf("Try again?\n");<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if(modified != 0) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("you have changed the 'modified'
+                variable\n");<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Try again?\n");<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 }<br>
             </p>
         </div>
