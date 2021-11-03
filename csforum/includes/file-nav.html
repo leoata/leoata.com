@@ -1,0 +1,53 @@
+<style>
+  .file-nav {
+
+    margin-top: 7vw;
+
+    height: 75px;
+    width: 350px;
+  }
+
+  .file-nav > a > div {
+    height: 19px;
+    margin-bottom: 9px;
+  }
+
+  .file-nav > a > div > * {
+    margin: 0 9px 0 0;
+    max-height: 19px;
+    float: left;
+  }
+
+  .file-nav > a > div > p {
+    font-family: "Geneva", sans-serif;
+    font-size: 14px;
+  }
+
+  .file-nav-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .file-nav-name {
+    min-width: 158px;
+  }
+
+  .file-nav-size {
+    min-width: 40px;
+  }
+
+  .file-nav-type {
+    min-width: 76px;
+  }
+</style>
+
+<div class="file-nav">
+  <a onclick="openFileViewModal('overflowme-modal')" href="#">
+    <div>
+      <img class="file-nav-icon" src="./img/file-nav/file.svg" alt="overflowme file"/>
+      <p class="file-nav-name">overflowme</p>
+      <p class="file-nav-size">2K</p>
+      <p class="file-nav-type">TeachText</p>
+    </div>
+  </a>
+</div>

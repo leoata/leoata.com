@@ -1,0 +1,33 @@
+<style>
+  .icon-link-container {
+
+    margin-top: 6vw;
+
+    width: 318px;
+    height: 61px;
+  }
+
+  .icon-link-container > a > img {
+    width: 64px;
+    height: 58px;
+
+    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-crisp-edges; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated; /* Chrome */
+    -ms-interpolation-mode: nearest-neighbor;
+  }
+</style>
+
+<div class="icon-link-container">
+  <a href="https://example.com">
+    <img src="./img/link-icon/macOSClassicCmd.png" alt="CMD Icon"/>
+  </a>
+  <a href="https://example.com" style="margin: 0 59px 0 59px">
+    <img src="./img/link-icon/macOSClassicControlPanel.png" alt="macOS Control Panel Icon"/>
+  </a>
+  <a href="https://example.com">
+    <img src="./img/link-icon/facebookBlackWhiteIcon.png" alt="Facebook Icon"/>
+  </a>
+</div>

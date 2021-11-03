@@ -1,0 +1,91 @@
+<style>
+    .source-code {
+        opacity: 0;
+
+    }
+
+    .source-code p {
+        background-color: black;
+
+        color: white;
+        text-align: left;
+
+        padding: 20px 50px 20px 10px;
+    }
+
+    .old-school-link {
+        color: blue;
+        text-decoration: underline;
+    }
+</style>
+<div id="overflowme-modal" class="fileview-box fileview-modal">
+    <div class="fileview-title-box">
+        <p>
+            overflowme
+        </p>
+        <a href="#" onclick="closeFileViewModal()" style="position: absolute; right: 4px; top: 3px;">
+            <img style="width: 20px; height: 20px" src="./img/64x64XCloseIcon.png"/>
+        </a>
+    </div>
+    <div class="fileview-stats">
+        <p style="text-align: left;">
+            22 lines
+        </p>
+        <p style="text-align: center; margin-top: -14px;">
+            627K in disk
+        </p>
+        <p style="text-align: right; margin-top: -14px;">
+            46K available
+        </p>
+    </div>
+    <div class="fileview-content" style="max-height: 100%">
+        This is a super cool buffer overflow demonstration.<br>
+        Click <a class="old-school-link" href="/csforum/static/overflowme_m1.bin">here</a>
+        for Mac
+        M1.<br>
+        Click <a class="old-school-link" href="/csforum/static/overflowme_win.exe">here</a> for
+        x64
+        Windows.<br>
+        Click <a class="old-school-link" href="/csforum/static/overflowme_nix.bin">here</a> for
+        x64
+        Linux.<br>
+        <script>
+            function showSourcecode() {
+
+                let el = document.getElementsByClassName('source-code')[0];
+                let link = document.getElementById("sourcecode-show");
+                if (link.innerText === 'Show') {
+                    el.style.opacity = 1;
+                    link.innerText = 'Hide';
+                } else if (link.innerText === 'Hide') {
+                    el.style.opacity = 0;
+                    link.innerText = 'Show';
+                }
+
+            }
+        </script>
+        <a id="sourcecode-show" href="#" class="old-school-link" onclick="showSourcecode()">Show</a> the sourcecode
+        <div class="source-code">
+            <p>
+                #include &lt;stdlib.h&gt;<br>
+                #include &lt;unistd.h&gt;<br>
+                #include &lt;stdio.h&gt;<br>
+
+                int main(int argc, char **argv)<br>
+                {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;volatile int modified;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;char buffer[64];<br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;modified = 0;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;gets(buffer);<br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;if(modified != 0) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;printf("you have changed the 'modified' variable\n");<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;printf("Try again?\n");<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }<br>
+            </p>
+        </div>
+    </div>
+</div>

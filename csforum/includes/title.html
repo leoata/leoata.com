@@ -1,0 +1,38 @@
+<style>
+  .title {
+    max-width: 360px;
+    height: 340px;
+    min-height: 340px;
+  }
+
+  .title h1 {
+    font-family: "VT323", sans-serif;
+    font-size: 76px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+<div class="title">
+  <h1 id="typed">
+
+  </h1>
+  <script>
+    typed = new Typed('#typed', {
+      strings: ['<h1>Cybersecurity Forum</h1>'],
+      typeSpeed: 90,
+      backSpeed: 70,
+      backDelay: 2500,
+      loop: true
+    });
+    typed.cursor.innerHTML =
+      `<svg height="76" width="5">
+        <line x1="0" y1="0" x2="0" y2="50" style="stroke:rgba(0,0,0,1);stroke-width:5"/>
+      </svg>`;
+    typed.cursor.style.display = "inline-block";
+    typed.cursor.style.width = "5px";
+    typed.cursor.style.height = "76px";
+
+  </script>
+</div>
