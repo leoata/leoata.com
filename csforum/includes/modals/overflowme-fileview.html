@@ -51,23 +51,10 @@
         Click <a class="old-school-link" href="/csforum/static/overflowme_nix.bin">here</a> for
         x64
         Linux.<br>
-        <script>
-            function showSourcecode() {
-
-                let el = document.getElementsByClassName('source-code')[0];
-                let link = document.getElementById("sourcecode-show");
-                if (link.innerText === 'Show') {
-                    el.style.opacity = 1;
-                    link.innerText = 'Hide';
-                } else if (link.innerText === 'Hide') {
-                    el.style.opacity = 0;
-                    link.innerText = 'Show';
-                }
-
-            }
-        </script>
-        <a id="sourcecode-show" href="#" class="old-school-link" onclick="showSourcecode()">Show</a> the sourcecode
-        <div class="source-code">
+        <a id="overflowme-sourcecode-show" href="#" class="old-school-link"
+           onclick="showSourcecode('overflowme-source-code', 'overflowme-sourcecode-show')">Show</a> the
+        sourcecode
+        <div class="source-code" id="overflowme-source-code">
             <p>
                 #include &lt;stdlib.h&gt;<br>
                 #include &lt;unistd.h&gt;<br>

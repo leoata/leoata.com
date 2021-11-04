@@ -1,21 +1,57 @@
 <style>
-  .fileview-modal{
-    width: 0;
-    max-width: 0;
-    height: 0;
-    max-height: 0;
+    .fileview-modal {
+        width: 0;
+        max-width: 0;
+        height: 0;
+        max-height: 0;
 
-    overflow: hidden;
+        overflow: hidden;
 
-    opacity: 0;
+        opacity: 0;
 
-  }
+    }
+
+    .source-code {
+        opacity: 0;
+
+    }
+
+    .source-code p {
+        background-color: black;
+
+        color: white;
+        text-align: left;
+
+        padding: 20px 50px 20px 10px;
+    }
+
+    .old-school-link {
+        color: blue;
+        text-decoration: underline;
+    }
 </style>
+<script>
+    function showSourcecode(id, show) {
 
+        let el = document.getElementById(id);
+        let link = document.getElementById(show);
+        if (link.innerText === 'Show') {
+            el.style.opacity = 1;
+            link.innerText = 'Hide';
+        } else if (link.innerText === 'Hide') {
+            el.style.opacity = 0;
+            link.innerText = 'Show';
+        }
+
+    }
+</script>
 <div class="container">
-  <div class="center-absolute" id="overflowme-load"></div>
+    <div class="center-absolute" id="overflowme-load"></div>
+    <div class="center-absolute" id="formatme-load"></div>
 
-  <script>
-    $( "#overflowme-load" ).load( "includes/modals/overflowme-fileview.html?f" );
-  </script>
+    <script>
+        $("#overflowme-load").load("includes/modals/overflowme-fileview.html?f");
+        $("#formatme-load").load("includes/modals/formatme-fileview.html?f");
+
+    </script>
 </div>

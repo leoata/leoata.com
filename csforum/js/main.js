@@ -30,7 +30,7 @@ function closeFileViewModal() {
   typed?.start()
 
   fileViewModalOpen = false;
-  let modals = ["overflowme-modal"];
+  let modals = ["overflowme-modal", "formatme-modal"];
   for (let i = 0; i < 3; i++) {
     var modalId = modals[i];
     anime({
