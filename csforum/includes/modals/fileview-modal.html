@@ -46,12 +46,126 @@
     }
 </script>
 <div class="container">
-    <div class="center-absolute" id="overflowme-load"></div>
-    <div class="center-absolute" id="formatme-load"></div>
+    <div id="fileviews"></div>
 
     <script>
-        $("#overflowme-load").load("includes/modals/overflowme-fileview.html?f");
-        $("#formatme-load").load("includes/modals/formatme-fileview.html?f");
+        function addToFileNav(name) {
+            let file_nav = document.getElementsByClassName("file-nav");
+            let link = document.createElement("a");
+            link.onclick = () => openFileViewModal(name + '-modal');
+            link.href = "#";
+
+            let sub_div = document.createElement("div");
+
+            let img = document.createElement("img");
+            img.className = "file-nav-icon";
+            img.src = "./img/file-nav/file.svg";
+            img.alt = name + " file";
+            sub_div.append(img);
+
+            let file_nav_name = document.createElement("p");
+            file_nav_name.className = "file-nav-name";
+            file_nav_name.innerText = name;
+            sub_div.append(file_nav_name);
+
+            let file_nav_size = document.createElement("p");
+            file_nav_size.className = "file-nav-size";
+            file_nav_size.innerText = "2K";
+            sub_div.append(file_nav_size);
+
+            let file_nav_type = document.createElement("p");
+            file_nav_type.className = "file-nav-type";
+            file_nav_type.innerText = "TeachText";
+            sub_div.append(file_nav_type);
+
+            link.appendChild(sub_div);
+            file_nav[0].appendChild(link);
+
+        }
+
+        function createContent(name, parent) {
+            let fileview_content = document.createElement("div");
+            fileview_content.className = "fileview-content";
+            fileview_content.id = name + "-fileview-content";
+            fileview_content.style.maxHeight = "100%";
+            parent.appendChild(fileview_content);
+
+        }
+
+        function createStats(parent) {
+            let stats = document.createElement("div");
+            stats.className = "fileview-stats";
+
+            let lines = document.createElement("p");
+            lines.style.textAlign = "left";
+            lines.innerText = (Math.floor(Math.random() * 30) + 20) + " lines";
+            stats.appendChild(lines);
+
+            let disk = document.createElement("p");
+            disk.style.textAlign = "center";
+            disk.style.marginTop = "-14px";
+            disk.innerText = (Math.floor(Math.random() * 1000) + 400) + " in disk";
+            stats.appendChild(disk);
+
+            let available = document.createElement("p");
+            available.style.textAlign = "right";
+            available.style.marginTop = "-14px";
+            available.innerText = (Math.floor(Math.random() * 200) + 40) + " available";
+            stats.appendChild(available);
+
+            parent.appendChild(stats);
+
+        }
+
+        function createTitle(title, parent) {
+            let title_box = document.createElement("div");
+            title_box.className = "fileview-title-box";
+
+            let p_title = document.createElement("p");
+            p_title.innerText = title;
+
+            let link = document.createElement("a");
+            link.href = "#";
+            link.onclick = () => closeFileViewModal();
+            link.style.position = "absolute";
+            link.style.right = "4px";
+            link.style.top = "3px";
+
+            let sub_img = document.createElement("img");
+            sub_img.style.width = "20px";
+            sub_img.style.height = "20px";
+            sub_img.src = "./img/64x64XCloseIcon.png";
+            link.appendChild(sub_img);
+
+            title_box.appendChild(p_title);
+            title_box.appendChild(link);
+
+            parent.appendChild(title_box);
+        }
+
+        function processFileView(name) {
+            let loads_parent = document.getElementById("fileviews");
+            let parent = document.createElement("div");
+            parent.id = name + "-fileview-parent";
+            parent.className = "center-absolute";
+            loads_parent.appendChild(parent);
+
+            let modal = document.createElement("div");
+            modal.id = name + "-modal";
+            modal.className = "fileview-box fileview-modal";
+
+            createTitle(name, modal);
+            createStats(modal);
+            createContent(name, modal);
+
+            parent.appendChild(modal);
+
+            fileViewModals.push(name + "-modal");
+        }
+
+
+        processFileView("formatme");
+        processFileView("overflowme");
 
     </script>
 </div>

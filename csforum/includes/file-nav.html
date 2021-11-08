@@ -41,21 +41,16 @@
   }
 </style>
 
+
 <div class="file-nav">
-  <a onclick="openFileViewModal('overflowme-modal')" href="#">
-    <div>
-      <img class="file-nav-icon" src="./img/file-nav/file.svg" alt="overflowme file"/>
-      <p class="file-nav-name">overflowme</p>
-      <p class="file-nav-size">2K</p>
-      <p class="file-nav-type">TeachText</p>
-    </div>
-  </a>
-  <a onclick="openFileViewModal('formatme-modal')" href="#">
-    <div>
-      <img class="file-nav-icon" src="./img/file-nav/file.svg" alt="formatme file"/>
-      <p class="file-nav-name">formatme</p>
-      <p class="file-nav-size">2K</p>
-      <p class="file-nav-type">TeachText</p>
-    </div>
-  </a>
 </div>
+
+<script>
+    for (let i = 0; i < fileViewModals.length; ++i){
+        let name = fileViewModals[i].substring(0, fileViewModals[i].indexOf("-modal"));
+        addToFileNav(name);
+        $("#" + name + "-fileview-content").load("/csforum/includes/modals/" + name + "-fileview-content.html?f");
+
+    }
+</script>
+

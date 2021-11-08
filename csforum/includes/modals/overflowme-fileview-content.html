@@ -1,0 +1,57 @@
+<style>
+    .source-code {
+        opacity: 0;
+
+    }
+
+    .source-code p {
+        background-color: black;
+
+        color: white;
+        text-align: left;
+
+        padding: 20px 50px 20px 10px;
+    }
+
+    .old-school-link {
+        color: blue;
+        text-decoration: underline;
+    }
+</style>
+This is a super cool buffer overflow demonstration. Your goal is to get the program to output the "Yay! Your
+number is '68'" <br>
+
+Click <a class="old-school-link" href="/csforum/static/overflowme_m1.bin">here</a>
+for Mac
+M1.<br>
+Click <a class="old-school-link" href="/csforum/static/overflowme.exe">here</a> for
+x64
+Windows.<br>
+Click <a class="old-school-link" href="/csforum/static/overflowme_nix.bin">here</a> for
+x64
+Linux.<br>
+<a id="overflowme-sourcecode-show" href="#" class="old-school-link"
+   onclick="showSourcecode('overflowme-source-code', 'overflowme-sourcecode-show')">Show</a> the
+sourcecode
+<div class="source-code" id="overflowme-source-code">
+    <p>
+        #include &lt;stdlib.h&gt;<br>
+        #include &lt;unistd.h&gt;<br>
+        #include &lt;stdio.h&gt;<br>
+
+        int main(int argc, char **argv)<br>
+        {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;volatile int modified;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;char buffer[64];<br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;modified = 0;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;gets(buffer);<br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;if(modified != 0) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Yay! Your number is \'%d\'\n", modified);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Try again?\n");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        }<br>
+    </p>
+</div>

@@ -1,10 +1,14 @@
 var fileViewModalOpen = false;
 var typed;
+var fileViewModals = [];
+
 
 $(document).ready(function () {
   $("div[data-includeHTML]").each(function () {
     $(this).load($(this).attr("data-includeHTML"));
+
   });
+
 });
 
 function openFileViewModal(modalId) {
@@ -30,9 +34,8 @@ function closeFileViewModal() {
   typed?.start()
 
   fileViewModalOpen = false;
-  let modals = ["overflowme-modal", "formatme-modal"];
   for (let i = 0; i < 3; i++) {
-    var modalId = modals[i];
+    var modalId = fileViewModals[i];
     anime({
       targets: `#${modalId}`,
       opacity: 0,
