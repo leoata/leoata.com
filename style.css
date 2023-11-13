@@ -3,6 +3,17 @@
 .container {
     margin: 0;
     padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 300vh; /* 100vh is one browser height, so 3 * 100vh = 300vh */
+    width: 100vw;
+    z-index: 2;
+}
+
+body {
+    margin: 0;
+    padding: 0;
 }
 
 .ext-link {
@@ -10,53 +21,205 @@
     right: 150px;
     bottom: 50px;
 }
-a { color:black; text-decoration: none;}
-a:hover { color:white; }
-.nav a { color:green; }
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}
+
+.nav a {
+    color: green;
+}
 
 .title p {
     font-size: 40px;
+}
 
+.subtitle p {
+    font-size: 16px;
+    color: #D4F2DB;
+    font-style: italic;
 }
 
 p {
-
     position: fixed;
     font-family: "PT Serif", serif;
     border-width: 1px;
 
-
     margin: 0;
     padding: 0;
-
 }
 
-.title {
-    position: fixed;
+.title-container {
+    position: absolute;
     text-align: center;
 
     width: 300px;
 
-    top: 40%;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
+    height: 8rem;
 }
 
-.bg {
-    max-width: 100vw;
-    max-height: 100vh;
+.title {
+    position: relative;
+    margin-bottom: 1rem;
+    height: 4rem;
+}
 
-    width: 100vw;
-    height: auto;
+.subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 12px;
 
+}
+
+.bottom-background-fill {
+    background-color: #693abe; /* Change the background color to match your design */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    z-index: -1; /* Place the background fill behind other content */
+}
+
+.top-background-fill {
+    background-color: #bf7199; /* Change the background color to match your design */
+    position: fixed;
     top: 0;
     left: 0;
-
-    position: fixed;
-
-    object-fit: none;
-
-    z-index: -1;
+    width: 100%;
+    height: 300px;
+    z-index: -1; /* Place the background fill behind other content */
+}
 
 
+.bg {
+    background-size: cover;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place the background fill behind other content */
+}
+
+.page-one {
+    height: 100vh;
+    width: 100vw;
+
+}
+
+
+.portfolio-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    width: 80%;
+    height: 80vh;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+.portfolio-items > p {
+    font-size: 40px;
+    position: absolute;
+    top: -100px;
+    color: #D4F2DB;
+    font-style: italic;
+}
+
+.portfolio-items > p::after {
+    content: ""; /* Add an empty pseudo-element */
+    display: block; /* Make it a block-level element to control its width */
+    border-bottom: 8px solid #D4F2DB; /* Define the underline style */
+    position: absolute; /* Position it absolutely within the parent element */
+    bottom: -6px; /* Adjust this value to control the distance from the text */
+    left: 0; /* Position it at the left edge of the container */
+    right: 0; /* Position it at the right edge of the container */
+}
+
+.portfolio-item {
+    width: 48%;
+    height: 42%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: black;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+}
+
+.portfolio-item p {
+    text-align: center;
+    opacity: 0;
+    z-index: 5;
+}
+
+.portfolio-item p {
+    text-align: center;
+    opacity: 1;
+    font-size: 20px;
+    font-family: "PT Serif", serif;
+    color: #D4F2DB;
+    font-style: italic;
+    transition: opacity 1s ease-in-out;
+}
+
+.portfolio-item:hover img {
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.portfolio-item:hover {
+    border-top-width: 0;
+    border-bottom-width: 20px;
+    border-style: solid;
+    border-color: #693abe;
+    transition: border-right-width 0.5s ease, border-bottom-width 0.5s ease, border-bottom-right-radius 0.5s ease, transform 0.5s ease;
+}
+
+.portfolio-items div:nth-child(odd):hover {
+    transform: translate(20px, -10px);
+    border-right-width: 0;
+    border-left-width: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.portfolio-items div:nth-child(even):hover {
+    transform: translate(-20px, -10px);
+    border-left-width: 0;
+    border-right-width: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.trinkets {
+    position: absolute;
+    width: 100vw;
+    height: 300vh;
+}
+
+.trinkets img {
+    height: 24px;
+    position: absolute;
 }
